@@ -1,18 +1,24 @@
 package com.educatic.api.service;
 
 import com.educatic.api.entity.Novedad;
+import com.educatic.api.repository.NovedadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NovedadService {
     @Autowired
-    private com.educatic.api.repository.NovedadRepository novedadCrudRepository;
+    private NovedadRepository novedadRepository;
 
     public List<Novedad> getAll() {
-        System.out.println((List<Novedad>) novedadCrudRepository.findAll());
-        return (List<Novedad>) novedadCrudRepository.findAll();
+        return (List<Novedad>) novedadRepository.findAll();
     }
+
+    public Optional<Novedad> getNovedad(int idNovedad) {
+        return novedadRepository.findById(idNovedad);
+    }
+
 }

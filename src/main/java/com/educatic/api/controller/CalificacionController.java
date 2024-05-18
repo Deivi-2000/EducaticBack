@@ -1,7 +1,7 @@
 package com.educatic.api.controller;
 
-import com.educatic.api.entity.Novedad;
-import com.educatic.api.service.NovedadService;
+import com.educatic.api.entity.Calificacion;
+import com.educatic.api.service.CalificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,19 +12,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("novedad")
-public class NovedadController {
+@RequestMapping("calificacion")
+public class CalificacionController {
     @Autowired
-    private NovedadService novedadService;
+    private CalificacionService calificacionService;
 
     @GetMapping("/all")
-    public List<Novedad> getNovedades() {
-        return novedadService.getAll();
-    }
-
-    @GetMapping("/getById/{idNovedad}")
-    public Optional<Novedad> getNovedadById(@PathVariable Integer idNovedad) {
-        return novedadService.getNovedad(idNovedad);
+    public List<Calificacion> getCalificaciones() {
+        return calificacionService.getAll();
     }
 
 }

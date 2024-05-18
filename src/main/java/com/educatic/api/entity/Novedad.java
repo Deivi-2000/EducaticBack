@@ -9,28 +9,32 @@ public class Novedad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_NOVEDAD")
-    private Long idNovedad;
+    private int idNovedad;
     @Column(name = "ID_MATERIA")
-    private Long idMateria;
+    private String idMateria;
     @Column(name = "FECHA_PUBLICACION")
     private String fechaPublicacion;
     @Column(name = "RUTA_IMAGEN")
     private String rutaImagen;
 
-    public Long getIdNovedad() {
+    @ManyToOne
+    @JoinColumn(name = "ID_MATERIA", insertable = false, updatable = false)
+    private Materia materia;
+
+    public int getIdNovedad() {
         return idNovedad;
     }
 
-    public void setIdNovedad(Long idNovedad) {
+    public void setIdNovedad(int idNovedad) {
         this.idNovedad = idNovedad;
     }
 
-    public String getRutaImagen() {
-        return rutaImagen;
+    public String getIdMateria() {
+        return idMateria;
     }
 
-    public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
+    public void setIdMateria(String idMateria) {
+        this.idMateria = idMateria;
     }
 
     public String getFechaPublicacion() {
@@ -41,11 +45,11 @@ public class Novedad {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    public Long getIdMateria() {
-        return idMateria;
+    public String getRutaImagen() {
+        return rutaImagen;
     }
 
-    public void setIdMateria(Long idMateria) {
-        this.idMateria = idMateria;
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 }
