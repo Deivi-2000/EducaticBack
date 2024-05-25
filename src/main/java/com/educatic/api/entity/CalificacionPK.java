@@ -1,5 +1,6 @@
 package com.educatic.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
@@ -9,9 +10,11 @@ import java.io.Serializable;
 public class CalificacionPK implements Serializable {
 
     @Column(name = "ID_USUARIO")
+    @JsonProperty(value = "ID_USUARIO")
     private String idUsuario;
 
     @Column(name = "ID_EVALUACION")
+    @JsonProperty(value = "ID_EVALUACION")
     private int idEvaluacion;
 
     public String getIdUsuario() {

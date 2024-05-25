@@ -1,5 +1,6 @@
 package com.educatic.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,11 +12,8 @@ public class Calificacion {
     private CalificacionPK id;
 
     @Column(name = "NOTA")
+    @JsonProperty(value = "NOTA")
     private double nota;
-
-    public CalificacionPK getId() {
-        return id;
-    }
 
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO", insertable = false, updatable = false)
@@ -24,6 +22,10 @@ public class Calificacion {
     @ManyToOne
     @JoinColumn(name = "ID_EVALUACION", insertable = false, updatable = false)
     private Evaluacion evaluacion;
+
+    public CalificacionPK getId() {
+        return id;
+    }
 
     public void setId(CalificacionPK id) {
         this.id = id;

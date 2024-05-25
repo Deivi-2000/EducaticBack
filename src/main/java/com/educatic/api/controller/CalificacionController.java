@@ -1,12 +1,11 @@
 package com.educatic.api.controller;
 
 import com.educatic.api.entity.Calificacion;
+import com.educatic.api.entity.Materia;
+import com.educatic.api.entity.Matricula;
 import com.educatic.api.service.CalificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +19,16 @@ public class CalificacionController {
     @GetMapping("/all")
     public List<Calificacion> getCalificaciones() {
         return calificacionService.getAll();
+    }
+
+    @GetMapping("/getCalificacionByUsuarioAndEvaluacion/{idUsuario}/{idEvaluacion}")
+    public Optional<Calificacion> getCalificacionByUsuarioAndEvaluacion(@PathVariable String idUsuario, @PathVariable int idEvaluacion) {
+        return calificacionService.getCalificacionByIdUsuarioAndByIdEvaluacion(idUsuario, idEvaluacion);
+    }
+
+    @PostMapping("/set")
+    public void saveCalificacion(@RequestBody Calificacion calificacion) {
+        calificacionService.saveOrUpdate(calificacion);
     }
 
 }
