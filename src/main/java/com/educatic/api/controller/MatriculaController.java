@@ -1,12 +1,11 @@
 package com.educatic.api.controller;
 
+import com.educatic.api.entity.Comentario;
+import com.educatic.api.entity.Materia;
 import com.educatic.api.entity.Matricula;
 import com.educatic.api.service.MatriculaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,5 +21,14 @@ public class MatriculaController {
         return matriculaService.getAll();
     }
 
+    @GetMapping("/getMateriasByIdUsuario/{idUsuario}")
+    public List<Materia> getMateriasByIdUsuario(@PathVariable String idUsuario) {
+        return matriculaService.getMateriasByUsuario(idUsuario);
+    }
+
+    @PostMapping("/set")
+    public void saveMatricula(@RequestBody Matricula matricula) {
+        matriculaService.saveOrUpdate(matricula);
+    }
 
 }

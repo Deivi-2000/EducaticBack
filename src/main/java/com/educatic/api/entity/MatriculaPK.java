@@ -1,16 +1,20 @@
 package com.educatic.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
 
 @Embeddable
 public class MatriculaPK {
 
     @Column(name = "ID_USUARIO")
+    @JsonProperty(value = "ID_USUARIO")
     private String idUsuario;
 
     @Column(name = "ID_MATERIA")
-    private String idEvaluacion;
+    @JsonProperty(value = "ID_MATERIA")
+    private String idMateria;
 
     public String getIdUsuario() {
         return idUsuario;
@@ -20,11 +24,11 @@ public class MatriculaPK {
         this.idUsuario = idUsuario;
     }
 
-    public String getIdEvaluacion() {
-        return idEvaluacion;
+    public String getIdMateria() {
+        return idMateria;
     }
 
-    public void setIdEvaluacion(String idEvaluacion) {
-        this.idEvaluacion = idEvaluacion;
+    public void setIdMateria(String idMateria) {
+        this.idMateria = idMateria;
     }
 }

@@ -1,6 +1,8 @@
 package com.educatic.api.controller;
 
+import com.educatic.api.entity.Comentario;
 import com.educatic.api.entity.Materia;
+import com.educatic.api.entity.Modulo;
 import com.educatic.api.service.MateriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,16 @@ public class MateriaController {
     @GetMapping("/getById/{idMateria}")
     public Optional<Materia> getMateriaById(@PathVariable String idMateria) {
         return materiaService.getMateria(idMateria);
+    }
+
+    @GetMapping("/{idMateria}/modulos")
+    public List<Modulo> getModulosById(@PathVariable String idMateria) {
+        return materiaService.getModulosByMateria(idMateria);
+    }
+
+    @GetMapping("/{idMateria}/comentarios")
+    public List<Comentario> getComentariosById(@PathVariable String idMateria) {
+        return materiaService.getComentariosByMateria(idMateria);
     }
 
 }

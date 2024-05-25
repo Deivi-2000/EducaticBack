@@ -1,5 +1,6 @@
 package com.educatic.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,9 +11,11 @@ public class Matricula {
     private MatriculaPK id;
 
     @Column(name = "SEMESTRE")
+    @JsonProperty(value = "SEMESTRE")
     private String semestre;
 
     @Column(name = "ESTADO")
+    @JsonProperty(value = "ESTADO")
     private String estado;
 
     @ManyToOne
@@ -45,5 +48,21 @@ public class Matricula {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Materia getMateria() {
+        return materia;
+    }
+
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
 }

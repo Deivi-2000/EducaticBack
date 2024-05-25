@@ -1,5 +1,6 @@
 package com.educatic.api.controller;
 
+import com.educatic.api.entity.Evaluacion;
 import com.educatic.api.entity.Modulo;
 import com.educatic.api.service.ModuloService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class ModuloController {
     private ModuloService moduloService;
 
     @GetMapping("/all")
-    public List<Modulo> getModuloes() {
+    public List<Modulo> getModulos() {
         return moduloService.getAll();
     }
 
@@ -27,4 +28,8 @@ public class ModuloController {
         return moduloService.getModulo(idModulo);
     }
 
+    @GetMapping("/{idModulo}/evaluaciones")
+    public List<Evaluacion> getEvaluacionesByModulo(@PathVariable String idModulo) {
+        return moduloService.getEvaluacionesByModulo(idModulo);
+    }
 }

@@ -1,36 +1,39 @@
 package com.educatic.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import org.springframework.lang.Nullable;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name="USUARIO")
-public class Usuario {
+public class Usuario implements Serializable {
 
     @Id
     @Column(name = "ID_USUARIO")
+    @JsonProperty(value = "ID_USUARIO")
     private String idUsuario;
 
     @Column(name = "ID_CARRERA")
+    @JsonProperty(value = "ID_CARRERA")
     private String idCarrera;
 
     @Column(name = "GENERO")
+    @JsonProperty(value = "GENERO")
     private String genero;
 
     @Column(name = "NOMBRE")
+    @JsonProperty(value = "NOMBRE")
     private String nombre;
 
-    @Column(name = "APELLIDO")
-    private String apellido;
-
-    @Column(name = "CORREO_ELECTRONICO")
-    private String correoElectronico;
-
     @Column(name = "FECHA_REGISTRO")
+    @JsonProperty(value = "FECHA_REGISTRO")
     private String fechaRegistro;
 
     @Column(name = "FECHA_NACIMIENTO")
+    @JsonProperty(value = "FECHA_NACIMIENTO")
     private String fechaNacimiento;
 
     @ManyToOne
@@ -77,22 +80,6 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
     }
 
     public String getFechaRegistro() {

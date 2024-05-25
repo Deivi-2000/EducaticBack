@@ -11,14 +11,18 @@ import java.util.Optional;
 @Service
 public class UsuarioService {
     @Autowired
-    private UsuarioRepository UsuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     public List<Usuario> getAll() {
-        return (List<Usuario>) UsuarioRepository.findAll();
+        return (List<Usuario>) usuarioRepository.findAll();
     }
 
     public Optional<Usuario> getUsuario(String idUsuario) {
-        return UsuarioRepository.findById(idUsuario);
+        return usuarioRepository.findById(idUsuario);
+    }
+
+    public void saveOrUpdate(Usuario usuario){
+        usuarioRepository.save(usuario);
     }
 
 }

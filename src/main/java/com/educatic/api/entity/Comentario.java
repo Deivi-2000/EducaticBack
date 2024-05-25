@@ -1,5 +1,6 @@
 package com.educatic.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,18 +13,23 @@ public class Comentario {
     private int idComentario;
 
     @Column(name = "ID_USUARIO")
+    @JsonProperty(value = "ID_USUARIO")
     private String idUsuario;
 
     @Column(name = "ID_MATERIA")
+    @JsonProperty(value = "ID_MATERIA")
     private String idMateria;
 
     @Column(name = "TEXTO")
+    @JsonProperty(value = "TEXTO")
     private String texto;
 
     @Column(name = "FECHA_CREACION")
+    @JsonProperty(value = "FECHA_CREACION")
     private String fechaCreacion;
 
     @Column(name = "HORA_CREACION")
+    @JsonProperty(value = "HORA_CREACION")
     private String horaCreacion;
 
     @ManyToOne
