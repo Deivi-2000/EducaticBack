@@ -30,4 +30,9 @@ public class ComentarioController {
         comentarioService.saveOrUpdate(comentario);
     }
 
+    @DeleteMapping("/delete/{idComentario}")
+    public void deleteComentario(@PathVariable Integer idComentario) {
+        comentarioService.delete(idComentario);
+    }
+
 }
