@@ -45,9 +45,13 @@ Actualiza las configuraciones de conexión a la base de datos en el archivo appl
 # Ejecutar la Aplicación:
 
 -Abre el proyecto en tu IDE como IntelliJ IDEA,puedes descargar aquí : https://www.jetbrains.com/es-es/idea/download/?section=windows  (Importa el proyecto descargado en tu IDE como un proyecto de Maven.)
+
 -Espera a que se carguen todas las dependencias.
+
 -Nota: Si no se han descargado las dependencias automáticamente, ve a la opción Maven (icono "m"), desglosa api, haz clic derecho en Dependencies y selecciona la opción Download Sources.
+
 -Busca la clase principal del proyecto, generalmente una clase con la anotación @SpringBootApplication y que suele llamarse ApiApplication.java.
+
 -Ejecuta la aplicación haciendo clic derecho en la clase principal y seleccionando la opción "Run" o "Debug".
 
 # Verificar la Ejecución
