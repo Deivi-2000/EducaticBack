@@ -20,9 +20,6 @@ public class Usuario implements Serializable {
     @JsonProperty(value = "ID_CARRERA")
     private String idCarrera;
 
-    @Column(name = "GENERO")
-    @JsonProperty(value = "GENERO")
-    private String genero;
 
     @Column(name = "NOMBRE")
     @JsonProperty(value = "NOMBRE")
@@ -32,9 +29,6 @@ public class Usuario implements Serializable {
     @JsonProperty(value = "FECHA_REGISTRO")
     private String fechaRegistro;
 
-    @Column(name = "FECHA_NACIMIENTO")
-    @JsonProperty(value = "FECHA_NACIMIENTO")
-    private String fechaNacimiento;
 
     @ManyToOne
     @JoinColumn(name = "ID_CARRERA", insertable = false, updatable = false)
@@ -66,13 +60,6 @@ public class Usuario implements Serializable {
         this.idCarrera = idCarrera;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
 
     public String getNombre() {
         return nombre;
@@ -90,11 +77,4 @@ public class Usuario implements Serializable {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
 }
