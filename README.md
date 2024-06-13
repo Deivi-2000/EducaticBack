@@ -85,7 +85,7 @@ CREATE TABLE carrera (
 CREATE TABLE materia (
     id_materia VARCHAR(10) PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL,
-    descripcion VARCHAR(50),
+    descripcion VARCHAR(200),
     fecha_creacion VARCHAR(10) NOT NULL,
     fecha_actualizado VARCHAR(10) NOT NULL,
     ruta_imagen VARCHAR(30)
@@ -96,7 +96,7 @@ CREATE TABLE modulo (
     id_materia VARCHAR(10) NOT NULL,
     CONSTRAINT mod_mat_id_fk FOREIGN KEY (id_materia) REFERENCES materia(id_materia),
     nombre VARCHAR(50) NOT NULL,
-    descripcion VARCHAR(100),
+    descripcion VARCHAR(1000),
     fecha_creacion VARCHAR(10) NOT NULL,
     fecha_actualizado VARCHAR(10) NOT NULL,
     ruta_imagen VARCHAR(30)
@@ -139,10 +139,8 @@ CREATE TABLE usuario (
     id_usuario VARCHAR(50) PRIMARY KEY,
     id_carrera VARCHAR(5) NOT NULL,
     CONSTRAINT usu_car_fk_id FOREIGN KEY (id_carrera) REFERENCES carrera(id_carrera),
-    genero VARCHAR(10) NOT NULL,
     nombre VARCHAR(50) NOT NULL,
     fecha_registro VARCHAR(10) NOT NULL,
-    fecha_nacimiento VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE comentario (
